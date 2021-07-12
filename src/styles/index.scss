@@ -18,6 +18,8 @@ button{
     border: none;
     background-color: white;
     color: red;
+   
+    
 }
 
 .texto2{
@@ -27,3 +29,10 @@ button{
       
 }
 
+.visible{
+    visibility: visible;
+}
+
+.notVisible{
+    visibility: hidden;
+}

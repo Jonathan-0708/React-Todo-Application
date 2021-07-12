@@ -8,6 +8,7 @@ const home = () => {
 		"Go to the laundry"
 	]);
 	const [newTask, SetNewTask] = useState("");
+	const [onHover, setOnHover] = useState(false);
 
 	const handleAddTask = event => {
 		if (event.key == "Enter" && newTask.length > 4) {
@@ -22,6 +23,14 @@ const home = () => {
 		);
 
 		setTasks(filteredTasks);
+	};
+
+	const handleHover = () => {
+		setOnHover(true);
+	};
+
+	const handleLeave = () => {
+		setOnHover(false);
 	};
 
 	return (
@@ -43,12 +52,19 @@ const home = () => {
 								? tasks.map((task, index) => {
 										return (
 											<ul
+												onMouseEnter={handleHover}
+												onMouseLeave={handleLeave}
 												className="texto1 row border-bottom"
 												key={index}>
 												<div className="col-11">
 													{task}
 												</div>
-												<div className="col-1">
+												<div
+													className={`col-1 ${
+														onHover
+															? "visible"
+															: "notVisible"
+													}`}>
 													<button
 														type="button"
 														onClick={() =>
