@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const home = () => {
-	const [tasks, setTasks] = useState([]);
+	const [tasks, setTasks] = useState([
+		"Walk the dog",
+		"Bathe the cat",
+		"Buy food",
+		"Go to the laundry"
+	]);
 	const [newTask, SetNewTask] = useState("");
-	const [update, setUpdate] = useState(false);
 
 	const handleAddTask = event => {
 		if (event.key == "Enter" && newTask.length > 4) {
@@ -19,18 +23,6 @@ const home = () => {
 
 		setTasks(filteredTasks);
 	};
-
-	useEffect(() => {
-		//todo lo que está dentro del setTimeout es la fase de montaje
-		setTimeout(() =>
-			setTasks([
-				"Walk the dog",
-				"Bathe the cat",
-				"Buy food",
-				"Go to the laundry"
-			])
-		);
-	}, [update]); //fase de actualización
 
 	return (
 		<>
